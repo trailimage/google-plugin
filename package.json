@@ -1,7 +1,7 @@
 {
-   "name": "@trailimage/google-plugin",
+   "name": "@trailimage/google-provider",
    "version": "1.0.0",
-   "description": "Trail Image Google plugin",
+   "description": "Trail Image Google provider",
    "private": false,
    "author": {
       "name": "Jason Abbott",
@@ -11,24 +11,22 @@
    "publishConfig": {
       "access": "public"
    },
-   "files": [
-      "index.ts"
-   ],
+   "files": ["index.ts", "lib/config.ts", "lib/map.ts", "lib/provider.ts"],
    "scripts": {
       "test": "jest --coverage"
    },
    "devDependencies": {
-      "@toba/build": "^1.3.3",
-      "@toba/test": "^1.8.0",
+      "@toba/build": "^1.4.0",
+      "@toba/test": "^1.10.0",
       "prettier": "^1.11.0",
       "typescript": "^2.8.0"
    },
    "repository": {
       "type": "git",
-      "url": "https://github.com/trailimage/google-plugin"
+      "url": "https://github.com/trailimage/google-provider"
    },
    "bugs": {
-      "url": "https://github.com/trailimage/google-plugin/issues"
+      "url": "https://github.com/trailimage/google-provider/issues"
    },
    "prettier": {
       "singleQuote": true,
@@ -37,6 +35,7 @@
    "dependencies": {
       "@toba/google-drive": "^1.1.0",
       "@toba/map": "^1.0.2",
-      "@toba/tools": "^1.16.0"
+      "@toba/tools": "^1.18.0",
+      "@trailimage/models": "^1.0.0"
    }
 }

@@ -1,7 +1,7 @@
 import { is, titleCase } from '@toba/tools';
-import { photoBlog } from '../models/';
-import config from '../config';
+import { photoBlog } from '@trailimage/models';
 import { geoJSON, MapProperties } from '@toba/map';
+import config from '../config';
 
 const BLOG_JSON_KEY = 'blog-map';
 
