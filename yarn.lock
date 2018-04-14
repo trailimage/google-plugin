@@ -169,6 +169,15 @@
     flat "^4.0.0"
     logfmt "^1.2.0"
 
+"@toba/logger@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@toba/logger/-/logger-1.0.4.tgz#55c0f43dfb772de2fc3c3dda53b45baea802dc10"
+  dependencies:
+    "@toba/tools" "^1.19.0"
+    chalk "^2.3.0"
+    flat "^4.0.0"
+    logfmt "^1.2.0"
+
 "@toba/map@^1.0.2", "@toba/map@^1.0.4":
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/@toba/map/-/map-1.0.8.tgz#66372a152475ca471533b0f0e7d559f4dedc2c4d"
@@ -182,15 +191,14 @@
   dependencies:
     oauth "^0.9.15"
 
-"@toba/test@^1.10.0":
-  version "1.10.1"
-  resolved "https://registry.yarnpkg.com/@toba/test/-/test-1.10.1.tgz#46b4783f2ee81285083377dfa75712ac99227590"
+"@toba/test@^1.12.0":
+  version "1.12.8"
+  resolved "https://registry.yarnpkg.com/@toba/test/-/test-1.12.8.tgz#d7d401ec381af1a9f170866af95bcae3de401308"
   dependencies:
-    "@toba/logger" "^1.0.3"
-    "@toba/tools" "^1.18.0"
+    "@toba/logger" "^1.0.4"
+    "@toba/tools" "^1.20.0"
     "@types/jest" "^22.2.0"
     "@types/node" "^9.6.0"
-    "@types/node-fetch" "^1.6.7"
     jest "^22.4.0"
     jest-localstorage-mock "^2.2.0"
     ts-jest "^22.4.0"
@@ -198,6 +206,12 @@
 "@toba/tools@^1.18.0", "@toba/tools@^1.8.0":
   version "1.18.0"
   resolved "https://registry.yarnpkg.com/@toba/tools/-/tools-1.18.0.tgz#9f729fd69e162149e73df4172f65ed7b1ade4f87"
+  dependencies:
+    zlib "^1.0.5"
+
+"@toba/tools@^1.19.0", "@toba/tools@^1.20.0":
+  version "1.20.0"
+  resolved "https://registry.yarnpkg.com/@toba/tools/-/tools-1.20.0.tgz#77f0c6b6c4443a42f5167ca1ce75426e3bbd7ad9"
   dependencies:
     zlib "^1.0.5"
 
@@ -218,13 +232,7 @@
   version "22.2.2"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-22.2.2.tgz#afe5dacbd00d65325f52da0ed3e76e259629ac9d"
 
-"@types/node-fetch@^1.6.7":
-  version "1.6.8"
-  resolved "https://registry.yarnpkg.com/@types/node-fetch/-/node-fetch-1.6.8.tgz#a59d8c75b300ddc3ca3eef23d449d677f9486c3d"
-  dependencies:
-    "@types/node" "*"
-
-"@types/node@*", "@types/node@^9.6.0":
+"@types/node@^9.6.0":
   version "9.6.2"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-9.6.2.tgz#e49ac1adb458835e95ca6487bc20f916b37aff23"
 
