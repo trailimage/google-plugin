@@ -41,7 +41,7 @@ export function seasonal(
 /**
  * Custom property transformations per named map source.
  */
-function trails(from: MapProperties): MapProperties {
+export function trails(from: MapProperties): MapProperties {
    const out: MapProperties = {};
    const miles: number = from['MILES'] as number;
    const who = 'Jurisdiction';
@@ -84,7 +84,7 @@ function trails(from: MapProperties): MapProperties {
    return out;
 }
 
-function mines(from: MapProperties): MapProperties {
+export function mines(from: MapProperties): MapProperties {
    const out: MapProperties = {};
    // lowercase "name" is the county name
    relabel(from, out, {

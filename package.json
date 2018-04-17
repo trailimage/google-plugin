@@ -23,7 +23,7 @@
    "devDependencies": {
       "@toba/build": "^1.4.0",
       "@toba/test": "^1.12.0",
-      "prettier": "^1.11.0",
+      "prettier": "^1.12.0",
       "typescript": "^2.8.0"
    },
    "repository": {
