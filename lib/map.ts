@@ -1,5 +1,5 @@
-import { is, titleCase } from '@toba/tools';
 import { MapProperties } from '@toba/map';
+import { is, titleCase } from '@toba/tools';
 //import config from '../config';
 
 const vehicle: { [key: string]: string } = {
