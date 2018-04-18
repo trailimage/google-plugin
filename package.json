@@ -15,7 +15,8 @@
       "index.ts",
       "lib/config.ts",
       "lib/map.ts",
-      "lib/provider.ts"
+      "lib/provider.ts",
+      "lib/track.ts"
    ],
    "scripts": {
       "test": "jest --coverage"
