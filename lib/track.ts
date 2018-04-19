@@ -2,6 +2,7 @@ import { TrackFeatures, geoJSON } from '@toba/map';
 import { is } from '@toba/tools';
 import { blog } from '@trailimage/models';
 import { googleDrive } from './client';
+import { LineString } from 'geojson';
 
 /**
  * Get GeoJSON for single post. If post has no track then return empty object.
@@ -14,7 +15,7 @@ export async function loadTrack(postKey: string): Promise<TrackFeatures> {
    }
 
    let geo: TrackFeatures;
-   const noGPX = geoJSON.features();
+   const noGPX = geoJSON.features<LineString>();
 
    if (post.triedTrack && !post.hasTrack) {
       geo = noGPX;
