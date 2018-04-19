@@ -141,10 +141,10 @@
     tslint-consistent-codestyle "^1.13.0"
 
 "@toba/feed@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@toba/feed/-/feed-1.0.1.tgz#563a84474fd16e462cbc433826879bcb96468dc1"
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@toba/feed/-/feed-1.0.2.tgz#2b9a47e30974b60fef079fd5107a752211eaf8a2"
   dependencies:
-    "@toba/tools" "^1.18.0"
+    "@toba/tools" "^1.20.0"
 
 "@toba/google-drive@^1.2.0":
   version "1.2.2"
@@ -202,13 +202,13 @@
     zlib "^1.0.5"
 
 "@trailimage/models@^1.0.0":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@trailimage/models/-/models-1.0.4.tgz#4ec8ee03a8bbf14aea173f484140919863eaad83"
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@trailimage/models/-/models-1.0.6.tgz#787a59de33d8975d65d9d01b07dcf6a97578bf7b"
   dependencies:
     "@toba/feed" "^1.0.1"
     "@toba/json-ld" "^1.1.0"
     "@toba/map" "^1.0.4"
-    "@toba/tools" "^1.20.0"
+    "@toba/tools" "^1.18.0"
 
 "@types/geojson@^7946.0.2":
   version "7946.0.2"
@@ -4415,8 +4415,8 @@ trough@^1.0.0:
   resolved "https://registry.yarnpkg.com/trough/-/trough-1.0.2.tgz#7f1663ec55c480139e2de5e486c6aef6cc24a535"
 
 ts-jest@^22.4.0:
-  version "22.4.3"
-  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-22.4.3.tgz#5c06b89359e598d97f08802936ea400be555a9d1"
+  version "22.4.4"
+  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-22.4.4.tgz#7b5c0abb2188fe7170840df9f80e78659aaf8a24"
   dependencies:
     babel-core "^6.26.0"
     babel-plugin-istanbul "^4.1.4"

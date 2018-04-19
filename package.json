@@ -13,7 +13,7 @@
    },
    "files": [
       "index.ts",
-      "lib/config.ts",
+      "lib/client.ts",
       "lib/map.ts",
       "lib/provider.ts",
       "lib/track.ts"
