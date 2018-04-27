@@ -10,17 +10,17 @@ beforeAll(() => {
    modelConfig.providers.map = mapProvider;
 });
 
-test('Loads file and converts to GPX', async () => {
+test('Retrieves track for post', async () => {
    const track = await postWithGPX.geoJSON();
-
    expect(track).toBeDefined();
    expect(track).toHaveProperty('features');
    expect(track.features).toBeInstanceOf(Array);
 
    const feature = track.features[0] as Feature<LineString>;
-   const line: LineString = feature.geometry;
-
+   expect(feature).toBeDefined();
    expect(feature.type).toBe('Feature');
+
+   const line: LineString = feature.geometry;
    expect(line.type).toBe('LineString');
    expect(line.coordinates.length).toBe(555);
 });
