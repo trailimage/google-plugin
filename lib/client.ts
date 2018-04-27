@@ -3,6 +3,9 @@ import { GoogleDriveClient, GoogleConfig } from '@toba/google-drive';
 let _client: GoogleDriveClient = null;
 let _config: GoogleConfig = null;
 
+/**
+ * Apply configuration used to connect with Google Drive.
+ */
 export function configure(config: GoogleConfig) {
    _config = config;
 }

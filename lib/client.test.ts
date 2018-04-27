@@ -1,7 +1,7 @@
 import { GoogleDriveClient } from '@toba/google-drive';
 import '@toba/test';
-import { googleDrive } from './client';
 import { testConfig } from './.test-data';
+import { googleDrive } from './client';
 
 test('Throws exception for invalid configuration', () => {
    let e: Error;
