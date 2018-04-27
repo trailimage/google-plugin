@@ -17,9 +17,9 @@ export const testConfig: GoogleConfig = {
       callback: 'http://localhost/auth/google',
       token: {
          type: null,
-         access: env('GOOGLE_ACCESS_TOKEN'),
+         access: env('GOOGLE_ACCESS_TOKEN', null),
          accessExpiration: null as Date,
-         refresh: env('GOOGLE_REFRESH_TOKEN', null)
+         refresh: env('GOOGLE_REFRESH_TOKEN')
       }
    } as AuthConfig
 };
