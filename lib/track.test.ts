@@ -1,15 +1,10 @@
-import { TrackFeatures, geoJSON } from '@toba/map';
 import '@toba/test';
+import { TrackFeatures, geoJSON } from '@toba/map';
 import { Feature, LineString } from 'geojson';
-import { postWithGPX, postWithoutGPX, testConfig } from './.test-data';
-import { googleDrive } from './client';
+import { postWithGPX, postWithoutGPX } from './.test-data';
 import { loadTrack } from './track';
 
-beforeAll(() => {
-   googleDrive.configure(testConfig);
-});
-
-test('Loads file and converts to GPX', async () => {
+test('loads file and converts to GPX', async () => {
    const track = await loadTrack(postWithGPX.key);
    expect(track).toBeDefined();
    expect(track).toHaveProperty('features');
@@ -23,13 +18,13 @@ test('Loads file and converts to GPX', async () => {
    expect(line.coordinates.length).toBe(555);
 });
 
-test('Returns empty GPX for posts without track', async () => {
+test('returns empty GPX for posts without track', async () => {
    const track = await loadTrack(postWithoutGPX.key);
    expect(track).toBeDefined();
    expect(track).toEqual(geoJSON.features());
 });
 
-test('Throws error for non-existent key', async () => {
+test('throws error for non-existent key', async () => {
    let t: TrackFeatures;
    let e: Error;
    const fakeKey = 'not-a-key';

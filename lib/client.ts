@@ -1,31 +1,21 @@
-import { GoogleDriveClient, GoogleConfig } from '@toba/google-drive';
+import { is } from '@toba/tools';
+import { GoogleDriveClient } from '@toba/google-drive';
+import { config } from '../';
 
 let _client: GoogleDriveClient = null;
-let _config: GoogleConfig = null;
-
-/**
- * Apply configuration used to connect with Google Drive.
- */
-export function configure(config: GoogleConfig) {
-   _config = config;
-}
 
 export const googleDrive = {
    get client() {
       if (_client == null) {
-         if (_config === null) {
+         if (!is.value(config.api)) {
             throw new Error('Invalid Google API client configuration');
          }
-         _client = new GoogleDriveClient(_config);
+         _client = new GoogleDriveClient(config.api);
       }
       return _client;
    },
 
    get config() {
-      return _config;
-   },
-
-   configure(config: GoogleConfig) {
-      _config = config;
+      return config.api;
    }
 };

@@ -1,12 +1,12 @@
 import { env } from '@toba/tools';
-import { GoogleConfig } from '@toba/google-drive';
 import { Config as AuthConfig } from '@toba/oauth';
 import { Post, blog } from '@trailimage/models';
+import { config } from '../';
 
 /**
  * @see http://code.google.com/apis/console/#project:1033232213688
  */
-export const testConfig: GoogleConfig = {
+config.api = {
    apiKey: env('GOOGLE_DRIVE_KEY'),
    folderID: '0B0lgcM9JCuSbMWluNjE4LVJtZWM',
    useCache: false,

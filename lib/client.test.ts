@@ -1,13 +1,10 @@
-import { GoogleDriveClient } from '@toba/google-drive';
 import '@toba/test';
-import { testConfig } from './.test-data';
+import { GoogleDriveClient } from '@toba/google-drive';
 import { googleDrive } from './client';
 
-test('Throws exception for invalid configuration', () => {
+test('throws exception for invalid configuration', () => {
    let e: Error;
    let c: GoogleDriveClient;
-
-   googleDrive.configure(null);
 
    try {
       c = googleDrive.client;
@@ -19,11 +16,11 @@ test('Throws exception for invalid configuration', () => {
    expect(e.message).toBe('Invalid Google API client configuration');
 });
 
-test('Allows configuration', () => {
+test('allows configuration', async () => {
    let e: Error;
    let c: GoogleDriveClient;
 
-   googleDrive.configure(testConfig);
+   await import('./.test-data');
 
    try {
       c = googleDrive.client;
