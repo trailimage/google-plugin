@@ -35,4 +35,4 @@ postWithoutGPX.title = 'Any title';
 postWithoutGPX.key = 'without-gpx';
 postWithGPX.id = '2';
 
-blog.addPost(postWithGPX).addPost(postWithoutGPX);
+blog.addAll(postWithGPX, postWithoutGPX);
