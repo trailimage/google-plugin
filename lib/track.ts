@@ -6,6 +6,8 @@ import { LineString } from 'geojson';
 
 /**
  * Get GeoJSON for single post. If post has no track then return empty object.
+ *
+ * @param postKey Usually the URL slug (not post provider ID)
  */
 export async function loadTrack(postKey: string): Promise<TrackFeatures> {
    const post = blog.postWithKey(postKey);
