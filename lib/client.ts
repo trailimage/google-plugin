@@ -1,6 +1,6 @@
 import { is } from '@toba/tools';
 import { GoogleDriveClient } from '@toba/google-drive';
-import { config } from '../';
+import { config } from './index';
 
 let _client: GoogleDriveClient = null;
 

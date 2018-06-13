@@ -1,7 +1,7 @@
 import { env } from '@toba/tools';
 import { Config as AuthConfig } from '@toba/oauth';
 import { Post, blog } from '@trailimage/models';
-import { config } from '../';
+import { config } from './';
 
 /**
  * @see http://code.google.com/apis/console/#project:1033232213688

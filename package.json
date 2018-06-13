@@ -1,6 +1,6 @@
 {
    "name": "@trailimage/google-provider",
-   "version": "2.1.1",
+   "version": "2.1.2",
    "description": "Trail Image Google provider",
    "private": false,
    "author": {
@@ -11,14 +11,13 @@
    "publishConfig": {
       "access": "public"
    },
+   "main": "dist/index.js",
+   "types:": "dist/index.d.ts",
    "files": [
-      "index.ts",
-      "lib/client.ts",
-      "lib/config.ts",
-      "lib/provider.ts",
-      "lib/track.ts"
+      "dist/**/*"
    ],
    "scripts": {
+      "prepublishOnly": "./node_modules/.bin/tsc",
       "test": "jest --coverage"
    },
    "devDependencies": {

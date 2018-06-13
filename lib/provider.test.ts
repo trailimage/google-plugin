@@ -3,7 +3,7 @@ import { geoJSON } from '@toba/map';
 import { config as modelConfig } from '@trailimage/models';
 import { Feature, LineString } from 'geojson';
 import { postWithGPX, postWithoutGPX } from './.test-data';
-import { mapProvider } from '../';
+import { mapProvider } from './';
 
 beforeAll(() => {
    modelConfig.providers.map = mapProvider;
