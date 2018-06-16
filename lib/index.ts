@@ -1,3 +1,2 @@
-export { provider as mapProvider } from './provider';
-export { ProviderConfig, config } from './config';
+export { provider as mapProvider, ProviderConfig } from './provider';
 export { GoogleConfig } from '@toba/google-drive';

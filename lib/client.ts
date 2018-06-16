@@ -1,21 +1,21 @@
 import { is } from '@toba/tools';
 import { GoogleDriveClient } from '@toba/google-drive';
-import { config } from './index';
+import { provider } from './provider';
 
 let _client: GoogleDriveClient = null;
 
 export const googleDrive = {
    get client() {
       if (_client == null) {
-         if (!is.value(config.api)) {
+         if (!is.value(provider.config.api)) {
             throw new Error('Invalid Google API client configuration');
          }
-         _client = new GoogleDriveClient(config.api);
+         _client = new GoogleDriveClient(provider.config.api);
       }
       return _client;
    },
 
    get config() {
-      return config.api;
+      return provider.config.api;
    }
 };
