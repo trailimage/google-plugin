@@ -1,4 +1,5 @@
 import { MapProvider } from '@trailimage/models';
+import { MapConfig } from '@toba/map';
 import { unlist } from '@toba/tools';
 import { IncomingMessage } from 'http';
 import { parse } from 'url';
@@ -6,7 +7,7 @@ import { GoogleConfig } from '@toba/google-drive';
 import { loadTrack } from './track';
 import { googleDrive } from './client';
 
-export interface ProviderConfig {
+export interface ProviderConfig extends MapConfig {
    api: GoogleConfig;
 }
 
@@ -26,4 +27,7 @@ class GoogleProvider extends MapProvider<ProviderConfig> {
    }
 }
 
-export const provider = new GoogleProvider({ api: null });
+/**
+ * Google Provider singleton.
+ */
+export const provider = new GoogleProvider();

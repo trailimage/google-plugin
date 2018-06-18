@@ -7,7 +7,7 @@ let _client: GoogleDriveClient = null;
 export const googleDrive = {
    get client() {
       if (_client == null) {
-         if (!is.value(provider.config.api)) {
+         if (!is.value(provider.config) || !is.value(provider.config.api)) {
             throw new Error('Invalid Google API client configuration');
          }
          _client = new GoogleDriveClient(provider.config.api);

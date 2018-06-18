@@ -1,5 +1,5 @@
 import { env } from '@toba/tools';
-import { Config as AuthConfig } from '@toba/oauth';
+import { AuthConfig } from '@toba/oauth';
 import { Post, blog } from '@trailimage/models';
 import { provider } from './provider';
 
@@ -23,7 +23,8 @@ provider.configure({
             refresh: env('GOOGLE_REFRESH_TOKEN')
          }
       } as AuthConfig
-   }
+   },
+   maxMarkers: 10
 });
 
 export const postWithGPX = new Post();
