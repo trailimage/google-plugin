@@ -1,6 +1,6 @@
 {
    "name": "@trailimage/google-provider",
-   "version": "2.2.2",
+   "version": "2.3.0",
    "description": "Trail Image Google provider",
    "private": false,
    "author": {
@@ -22,7 +22,7 @@
    },
    "devDependencies": {
       "@toba/build": "^1.7.0",
-      "@toba/test": "^1.19.0",
+      "@toba/test": "^1.20.0",
       "prettier": "^1.13.0",
       "typescript": "^2.9.0"
    },
@@ -40,8 +40,8 @@
    "dependencies": {
       "@toba/google-drive": "^1.4.0",
       "@toba/map": "^1.3.0",
-      "@toba/tools": "^3.2.0",
-      "@trailimage/models": "^2.0.0",
+      "@toba/tools": "^3.4.0",
+      "@trailimage/models": "^2.2.0",
       "geojson": "^0.5.0"
    }
 }

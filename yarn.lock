@@ -101,7 +101,7 @@
     "@types/oauth" "^0.9.0"
     oauth "^0.9.15"
 
-"@toba/test@^1.19.0":
+"@toba/test@^1.20.0":
   version "1.20.0"
   resolved "https://registry.yarnpkg.com/@toba/test/-/test-1.20.0.tgz#5385595e37fa6b15b834ff84aaf3ef495d47bb87"
   dependencies:
@@ -119,7 +119,7 @@
   dependencies:
     zlib "^1.0.5"
 
-"@trailimage/models@^2.0.0":
+"@trailimage/models@^2.2.0":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@trailimage/models/-/models-2.2.1.tgz#0d4788756cf6028605c2c70eddbea4a9c4a38b5e"
   dependencies:
