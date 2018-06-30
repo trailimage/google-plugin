@@ -4,8 +4,9 @@ import { unlist } from '@toba/tools';
 import { IncomingMessage } from 'http';
 import { parse } from 'url';
 import { GoogleConfig } from '@toba/google-drive';
-import { loadTrack } from './track';
+import { loadTrack, streamGPX } from './track';
 import { googleDrive } from './client';
+import { Writable } from 'stream';
 
 export interface ProviderConfig extends MapConfig {
    api: GoogleConfig;
@@ -14,6 +15,10 @@ export interface ProviderConfig extends MapConfig {
 class GoogleProvider extends MapProvider<ProviderConfig> {
    track(postKey: string) {
       return loadTrack(postKey);
+   }
+
+   gpx(postKey: string, stream: Writable) {
+      return streamGPX(postKey, stream);
    }
 
    authorizationURL() {

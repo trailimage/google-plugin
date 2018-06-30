@@ -24,7 +24,7 @@ test('retrieves track for post', async () => {
    expect(line.coordinates.length).toBe(555);
 });
 
-test('returns empty GPX for posts without track', async () => {
+test('returns empty GeoJSON for posts without track', async () => {
    const track = await postWithoutGPX.geoJSON();
    expect(track).toBeDefined();
    expect(track).toEqual(geoJSON.features());
