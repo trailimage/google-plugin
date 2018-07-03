@@ -1,6 +1,6 @@
 import { TrackFeatures, geoJSON } from '@toba/map';
 import { is } from '@toba/tools';
-import { blog } from '@trailimage/models';
+import { blog, Post } from '@trailimage/models';
 import { googleDrive } from './client';
 import { LineString } from 'geojson';
 import { Writable } from 'stream';
@@ -17,19 +17,17 @@ export async function loadTrack(postKey: string): Promise<TrackFeatures> {
       throw new ReferenceError(`Post ${postKey} not found`);
    }
 
-   let geo: TrackFeatures;
    const noGPX = geoJSON.features<LineString>();
 
-   if (post.triedTrack && !post.hasTrack) {
-      geo = noGPX;
-   } else {
-      geo = await googleDrive.client
-         .readFileWithName(post.title + '.gpx')
-         .then(geoJSON.featuresFromGPX)
-         .catch(() => noGPX);
-   }
-   return geo;
+   return post.triedTrack && !post.hasTrack
+      ? noGPX
+      : await getGPX(post)
+           .then(geoJSON.featuresFromGPX)
+           .catch(() => noGPX);
 }
+
+const getGPX = (post: Post) =>
+   googleDrive.client.readFileWithName(post.title + '.gpx');
 
 /**
  * Stream track GPX for single post. If post has no track then end the stream.
@@ -37,7 +35,10 @@ export async function loadTrack(postKey: string): Promise<TrackFeatures> {
  * @param postKey Usually the URL slug (not post provider ID)
  * @param stream Writable stream, usually an HTTP response for file download
  */
-export function streamGPX(postKey: string, stream: Writable): Promise<void> {
+export async function streamGPX(
+   postKey: string,
+   stream: Writable
+): Promise<void> {
    const post = blog.postWithKey(postKey);
 
    if (!is.value(post)) {
@@ -48,6 +49,7 @@ export function streamGPX(postKey: string, stream: Writable): Promise<void> {
       stream.end();
       return Promise.resolve();
    } else {
-      return googleDrive.client.readFileWithName(post.title + '.gpx', stream);
+      const gpx = await getGPX(post);
+      stream.write(gpx);
    }
 }
