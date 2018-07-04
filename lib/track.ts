@@ -47,9 +47,8 @@ export async function streamGPX(
 
    if (post.triedTrack && !post.hasTrack) {
       stream.end();
-      return Promise.resolve();
    } else {
       const gpx = await getGPX(post);
-      stream.write(gpx);
+      stream.end(gpx);
    }
 }

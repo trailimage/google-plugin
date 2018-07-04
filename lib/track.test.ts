@@ -9,55 +9,44 @@ import { provider } from './provider';
 /**
  * Used to skip tests that require live API configuration.
  */
-let isConfigured = false;
+const isConfigured = provider.config.api.apiKey !== undefined;
 
-beforeAll(() => {
-   isConfigured = provider.config.api.apiKey !== undefined;
-});
+if (isConfigured) {
+   test('loads file and converts to GeoJSON', async () => {
+      const track = await loadTrack(postWithGPX.key);
+      expect(track).toBeDefined();
+      expect(track).toHaveProperty('features');
+      expect(track.features).toBeInstanceOf(Array);
 
-test('loads file and converts to GeoJSON', async () => {
-   if (!isConfigured) {
-      return;
-   }
-   const track = await loadTrack(postWithGPX.key);
-   expect(track).toBeDefined();
-   expect(track).toHaveProperty('features');
-   expect(track.features).toBeInstanceOf(Array);
+      const feature = track.features[0] as Feature<LineString>;
+      const line: LineString = feature.geometry;
 
-   const feature = track.features[0] as Feature<LineString>;
-   const line: LineString = feature.geometry;
+      expect(feature.type).toBe('Feature');
+      expect(line.type).toBe('LineString');
+      expect(line.coordinates.length).toBe(555);
+   });
 
-   expect(feature.type).toBe('Feature');
-   expect(line.type).toBe('LineString');
-   expect(line.coordinates.length).toBe(555);
-});
+   test('streams GPX file', async () => {
+      const stream = new MemoryStream();
+      await streamGPX(postWithGPX.key, stream);
+      expect(stream.writeWasCalled).toBe(true);
+      expect(stream.receivedData).toBe(true);
+      expect(stream.text.includes('<?xml')).toBe(true);
+   });
 
-test('streams GPX file', async () => {
-   if (!isConfigured) {
-      return;
-   }
-   const stream = new MemoryStream();
-   await streamGPX(postWithGPX.key, stream);
-   expect(stream.writeWasCalled).toBe(true);
-   expect(stream.receivedData).toBe(true);
-   expect(stream.text.includes('<?xml')).toBe(true);
-});
+   test('throws error for non-existent GPX file', async () => {
+      let e: Error;
+      const stream = new MemoryStream();
 
-test('throws error for non-existent GPX file', async () => {
-   if (!isConfigured) {
-      return;
-   }
-   let e: Error;
-   const stream = new MemoryStream();
-
-   try {
-      await streamGPX(postWithoutGPX.key, stream);
-   } catch (err) {
-      e = err;
-   }
-   expect(stream.writeWasCalled).toBe(false);
-   expect(e.message).toBe(`File not found: “${postWithoutGPX.title}.gpx”`);
-});
+      try {
+         await streamGPX(postWithoutGPX.key, stream);
+      } catch (err) {
+         e = err;
+      }
+      expect(stream.writeWasCalled).toBe(false);
+      expect(e.message).toBe(`File not found: “${postWithoutGPX.title}.gpx”`);
+   });
+}
 
 test('returns empty GeoJSON for posts without track', async () => {
    const track = await loadTrack(postWithoutGPX.key);
