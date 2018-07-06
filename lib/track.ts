@@ -35,20 +35,16 @@ const getGPX = (post: Post) =>
  * @param postKey Usually the URL slug (not post provider ID)
  * @param stream Writable stream, usually an HTTP response for file download
  */
-export async function streamGPX(
-   postKey: string,
-   stream: Writable
-): Promise<void> {
+export function streamGPX(postKey: string, stream: Writable): Promise<void> {
    const post = blog.postWithKey(postKey);
 
    if (!is.value(post)) {
-      throw new ReferenceError(`Post ${postKey} not found`);
+      return Promise.reject(`Post ${postKey} not found`);
    }
 
    if (post.triedTrack && !post.hasTrack) {
-      stream.end();
+      return Promise.reject(`Post ${postKey} has no track`);
    } else {
-      const gpx = await getGPX(post);
-      stream.end(gpx);
+      return getGPX(post).then(gpx => stream.end(gpx));
    }
 }
