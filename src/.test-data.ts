@@ -1,4 +1,4 @@
-import { env } from '@toba/tools';
+import { env } from '@toba/node-tools';
 import { AuthConfig } from '@toba/oauth';
 import { Post, blog } from '@trailimage/models';
 import { provider } from './provider';
@@ -13,13 +13,14 @@ provider.configure({
       useCache: false,
       cacheSize: 0,
       auth: {
+         apiKey: '',
          clientID: env('GOOGLE_CLIENT_ID'),
          secret: env('GOOGLE_SECRET'),
          callback: 'http://localhost/auth/google',
          token: {
-            type: null,
-            access: env('GOOGLE_ACCESS_TOKEN', null),
-            accessExpiration: null as Date,
+            type: '',
+            access: env('GOOGLE_ACCESS_TOKEN', undefined),
+            accessExpiration: undefined,
             refresh: env('GOOGLE_REFRESH_TOKEN')
          }
       } as AuthConfig

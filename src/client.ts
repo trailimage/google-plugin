@@ -1,8 +1,8 @@
-import { is } from '@toba/tools';
+import { is } from '@toba/node-tools';
 import { GoogleDriveClient } from '@toba/google-drive';
 import { provider } from './provider';
 
-let _client: GoogleDriveClient = null;
+let _client: GoogleDriveClient | null = null;
 
 export const googleDrive = {
    get client() {

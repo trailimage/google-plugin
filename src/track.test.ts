@@ -35,7 +35,7 @@ if (isConfigured) {
    });
 
    test('throws error for non-existent GPX file', async () => {
-      let e: Error;
+      let e: Error | undefined = undefined;
       const stream = new MemoryStream();
 
       try {
@@ -44,7 +44,7 @@ if (isConfigured) {
          e = err;
       }
       expect(stream.writeWasCalled).toBe(false);
-      expect(e.message).toBe(`File not found: “${postWithoutGPX.title}.gpx”`);
+      expect(e!.message).toBe(`File not found: “${postWithoutGPX.title}.gpx”`);
    });
 }
 
@@ -55,8 +55,8 @@ test('returns empty GeoJSON for posts without track', async () => {
 });
 
 test('throws error for non-existent key', async () => {
-   let t: TrackFeatures;
-   let e: Error;
+   let t: TrackFeatures | undefined = undefined;
+   let e: Error | undefined = undefined;
    const fakeKey = 'not-a-key';
 
    try {
@@ -66,5 +66,5 @@ test('throws error for non-existent key', async () => {
    }
    expect(t).toBeUndefined();
    expect(e).toBeDefined();
-   expect(e.message).toBe(`Post ${fakeKey} not found`);
+   expect(e!.message).toBe(`Post ${fakeKey} not found`);
 });

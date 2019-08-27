@@ -1,6 +1,6 @@
 import { MapProvider } from '@trailimage/models';
 import { MapConfig } from '@toba/map';
-import { unlist } from '@toba/tools';
+import { unlist } from '@toba/node-tools';
 import { IncomingMessage } from 'http';
 import { parse } from 'url';
 import { GoogleConfig } from '@toba/google-drive';
@@ -26,6 +26,9 @@ class GoogleProvider extends MapProvider<ProviderConfig> {
    }
 
    async getAccessToken(req: IncomingMessage) {
+      if (req.url === undefined) {
+         throw 'Unable to get access token for missing URL';
+      }
       const url = parse(req.url, true);
       const code = unlist(url.query['code'], true);
       return googleDrive.client.getAccessToken(code);

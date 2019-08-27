@@ -1,5 +1,5 @@
 import { TrackFeatures, geoJSON } from '@toba/map';
-import { is } from '@toba/tools';
+import { is } from '@toba/node-tools';
 import { blog, Post } from '@trailimage/models';
 import { googleDrive } from './client';
 import { LineString } from 'geojson';
@@ -22,7 +22,10 @@ export async function loadTrack(postKey: string): Promise<TrackFeatures> {
    return post.triedTrack && !post.hasTrack
       ? noGPX
       : await getGPX(post)
-           .then(geoJSON.featuresFromGPX)
+           .then(gpxText => {
+              const features = geoJSON.featuresFromGPX(gpxText);
+              return features !== null ? features : noGPX;
+           })
            .catch(() => noGPX);
 }
 
