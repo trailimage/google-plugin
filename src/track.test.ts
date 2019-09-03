@@ -44,7 +44,8 @@ if (isConfigured) {
          e = err;
       }
       expect(stream.writeWasCalled).toBe(false);
-      expect(e!.message).toBe(`File not found: “${postWithoutGPX.title}.gpx”`);
+      // error here is just a message not an object
+      expect(e).toBe(`File not found: “${postWithoutGPX.title}.gpx”`);
    });
 }
 

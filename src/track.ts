@@ -10,10 +10,13 @@ import { Writable } from 'stream';
  *
  * @param postKey Usually the URL slug (not post provider ID)
  */
-export async function loadTrack(postKey: string): Promise<TrackFeatures> {
+export async function loadTrack(postKey?: string): Promise<TrackFeatures> {
+   if (postKey === undefined) {
+      throw new ReferenceError('Post key not provided for loading track');
+   }
    const post = blog.postWithKey(postKey);
 
-   if (!is.value(post)) {
+   if (!is.value<Post>(post)) {
       throw new ReferenceError(`Post ${postKey} not found`);
    }
 
@@ -41,15 +44,18 @@ const getGPX = (post: Post) =>
  * @param postKey Usually the URL slug (not post provider ID)
  * @param stream Writable stream, usually an HTTP response for file download
  */
-export function streamGPX(postKey: string, stream: Writable): Promise<void> {
+export async function streamGPX(postKey?: string, stream?: Writable) {
+   if (postKey === undefined || stream === undefined) {
+      throw new ReferenceError('Post key not provided for streaming track');
+   }
    const post = blog.postWithKey(postKey);
 
-   if (!is.value(post)) {
-      return Promise.reject(`Post ${postKey} not found`);
+   if (!is.value<Post>(post)) {
+      throw new ReferenceError(`Post ${postKey} not found`);
    }
 
    if (post.triedTrack && !post.hasTrack) {
-      return Promise.reject(`Post ${postKey} has no track`);
+      throw new ReferenceError(`Post ${postKey} has no track`);
    } else {
       return getGPX(post).then(gpx => stream.end(gpx));
    }
