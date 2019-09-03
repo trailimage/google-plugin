@@ -25,9 +25,9 @@
       "test": "jest --coverage"
    },
    "devDependencies": {
-      "@toba/develop": "^6.6.0",
+      "@toba/develop": "^6.6.12",
       "@toba/test": "^4.1.0",
-      "typescript": "^3.5.0"
+      "typescript": "^3.6.2"
    },
    "repository": {
       "type": "git",
@@ -37,7 +37,7 @@
       "url": "https://github.com/trailimage/google-provider/issues"
    },
    "dependencies": {
-      "@toba/google-drive": "^1.6.0",
+      "@toba/google-drive": "^1.7.1",
       "@toba/map": "^2.1.0",
       "@toba/node-tools": "^1.4.6",
       "@trailimage/models": "^2.2.0",

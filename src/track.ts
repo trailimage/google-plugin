@@ -23,6 +23,9 @@ export async function loadTrack(postKey: string): Promise<TrackFeatures> {
       ? noGPX
       : await getGPX(post)
            .then(gpxText => {
+              if (gpxText === null) {
+                 return noGPX;
+              }
               const features = geoJSON.featuresFromGPX(gpxText);
               return features !== null ? features : noGPX;
            })
