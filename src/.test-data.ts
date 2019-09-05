@@ -19,7 +19,7 @@ provider.configure({
          callback: 'http://localhost/auth/google',
          token: {
             type: '',
-            access: env('GOOGLE_ACCESS_TOKEN', undefined),
+            access: env('GOOGLE_ACCESS_TOKEN', null),
             accessExpiration: undefined,
             refresh: env('GOOGLE_REFRESH_TOKEN')
          }
