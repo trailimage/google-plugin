@@ -5,6 +5,11 @@
 [![DevDependencies](https://img.shields.io/david/dev/trailimage/google-provider.svg)](https://david-dm.org/trailimage/google-provider#info=devDependencies&view=list)
 [![codecov](https://codecov.io/gh/trailimage/google-provider/branch/master/graph/badge.svg)](https://codecov.io/gh/trailimage/google-provider)
 
+# Overview
+
+Use [Google Drive Client](https://github.com/toba/google-drive) to populate [Trail Image models](https://github.com/trailimage/models).
+
+
 # Usage
 
 ```
