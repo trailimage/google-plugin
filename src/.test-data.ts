@@ -1,7 +1,7 @@
-import { env } from '@toba/node-tools';
-import { AuthConfig } from '@toba/oauth';
-import { Post, blog } from '@trailimage/models';
-import { provider } from './provider';
+import { env } from '@toba/node-tools'
+import { AuthConfig } from '@toba/oauth'
+import { Post, blog } from '@trailimage/models'
+import { provider } from './provider'
 
 /**
  * @see http://code.google.com/apis/console/#project:1033232213688
@@ -26,17 +26,17 @@ provider.configure({
       } as AuthConfig
    },
    maxMarkers: 10
-});
+})
 
-export const postWithGPX = new Post();
-export const postWithoutGPX = new Post();
+export const postWithGPX = new Post()
+export const postWithoutGPX = new Post()
 
-postWithGPX.title = 'With Nick and Kayla on Mores Mountain';
-postWithGPX.key = 'with-gpx';
-postWithGPX.id = '1';
+postWithGPX.title = 'With Nick and Kayla on Mores Mountain'
+postWithGPX.key = 'with-gpx'
+postWithGPX.id = '1'
 
-postWithoutGPX.title = 'Any title';
-postWithoutGPX.key = 'without-gpx';
-postWithGPX.id = '2';
+postWithoutGPX.title = 'Any title'
+postWithoutGPX.key = 'without-gpx'
+postWithGPX.id = '2'
 
-blog.addAll(postWithGPX, postWithoutGPX);
+blog.addAll(postWithGPX, postWithoutGPX)
