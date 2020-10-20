@@ -1,6 +1,6 @@
 {
    "name": "@trailimage/google-provider",
-   "version": "2.5.1",
+   "version": "2.5.2",
    "description": "Trail Image Google provider",
    "private": false,
    "author": {
@@ -19,22 +19,22 @@
       "cjs"
    ],
    "scripts": {
-      "build:esm": "./node_modules/.bin/tsc --project ./node_modules/@toba/develop/tsconfig.esm.json",
-      "build:cjs": "./node_modules/.bin/tsc --project ./node_modules/@toba/develop/tsconfig.cjs-min.json",
+      "build:esm": "tsc --project ./node_modules/@toba/develop/tsconfig.esm.json",
+      "build:cjs": "tsc --project ./node_modules/@toba/develop/tsconfig.cjs-min.json",
       "prepublishOnly": "npm run build:esm & npm run build:cjs",
       "test": "jest --coverage"
    },
    "devDependencies": {
       "@toba/develop": "^6.8.0",
       "@toba/test": "^4.2.0",
-      "typescript": "^3.7.5"
+      "typescript": "^4.0.0"
    },
    "repository": {
       "type": "git",
       "url": "https://github.com/trailimage/google-provider"
    },
    "dependencies": {
-      "@toba/google-drive": "^1.7.2",
+      "@toba/google-drive": "^1.8.0",
       "@toba/map": "^2.1.0",
       "@toba/node-tools": "^1.4.9",
       "@trailimage/models": "^3.1.0",

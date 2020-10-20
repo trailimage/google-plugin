@@ -31,7 +31,12 @@ class GoogleProvider extends MapProvider<ProviderConfig> {
       }
       const url = parse(req.url, true)
       const code = unlist(url.query['code'], true)
-      return googleDrive.client.getAccessToken(code)
+
+      if (code) {
+         return googleDrive.client.getAccessToken(code)
+      } else {
+         throw 'Unable to retrieve access token code'
+      }
    }
 
    clearCache() {
